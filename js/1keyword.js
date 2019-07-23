@@ -69,18 +69,26 @@ $(document).ready(function(){
             return;
         }
 
-		if(event.which!=39&&event.which!=40&&event.which!=37&&event.which!=38&&event.which!=13)
-		$.ajax({
-			url:"https://suggestion.baidu.com/su?wd="+input.val()+"&cb=keydata",
-			type:"GET",
-			dataType:"jsonp",
-			jsonp: 'jsoncallback',
-			async: false,
-			timeout: 5000,//请求超时
-			data:{
-			}
-		});
-	});
+        if(event.which!=39&&event.which!=40&&event.which!=37&&event.which!=38&&event.which!=13)
+        $.ajax({
+        	url:"https://server.rthsoftware.cn/backend/get",
+            type:"GET",
+            dataType:"jsonp",
+            jsonp: 'jsoncallback',
+            async: false,
+            timeout: 5000,//请求超时
+            data:{
+                "charset":"gb2312",
+                "url":"http://suggestion.baidu.com/su?wd="+input.val()+"&cb=keydata",
+                "username":"405801769jgkbjylc"
+            },
+            success: function (json) {
+            },
+            error: function (xhr) {
+                return;
+            }
+        });
+    });
 
 });
 //打印关键词

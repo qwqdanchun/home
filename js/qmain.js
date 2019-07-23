@@ -25,8 +25,8 @@ window.onload=function(){
 	}
 	bgPreference = localStorage.getItem("bgPreference");
 	if(bgPreference == undefined){
-		localStorage.setItem("bgPreference", "Bing");
-		bgPreference = "Bing";
+		localStorage.setItem("bgPreference", "Default");
+		bgPreference = "Default";
 	}
 	switch (bgPreference) {
     case 'Default':
@@ -34,17 +34,16 @@ window.onload=function(){
         bgbox.style.opacity="1";
         break;
     case 'Bing':
-    	bgbox.style.backgroundImage = "url(https://api.neweb.top/bing.php)";
         bgbox.style.opacity="1";
         break;
 	}
 	//getLike();
-	//currentNotes = localStorage.getItem("currentNotes");
-	//maximumNoteNumber = localStorage.getItem("maximumNoteNumber");
-	//if(currentNotes == undefined){
-	//	currentNotes = "0";
-	//	maximumNoteNumber = "0";
-	//}
+	currentNotes = localStorage.getItem("currentNotes");
+	maximumNoteNumber = localStorage.getItem("maximumNoteNumber");
+	if(currentNotes == undefined){
+		currentNotes = "0";
+		maximumNoteNumber = "0";
+	}
 	loadNotes();
 };
 function Input_KeyDown(event){
@@ -105,8 +104,8 @@ function Title_Click(event)
 			btnLike.style.opacity = "1";
 			btnLike.style.cursor = "pointer";
 		}
-		//document.getElementById("tp-weather-widget").style.opacity = "0.5";
-		//document.getElementById("tp-weather-widget").style.pointerEvents = "auto";
+		document.getElementById("tp-weather-widget").style.opacity = "0.5";
+		document.getElementById("tp-weather-widget").style.pointerEvents = "auto";
 		setTimeout("navbox.style.opacity='1';",100);
     }else{
         Navbox_Click(event)
@@ -129,8 +128,8 @@ function Navbox_Click(event)
 		btnSettings.style.cursor = "default";
 		btnLike.style.opacity="0";
 		btnLike.style.cursor="default";
-		//document.getElementById("tp-weather-widget").style.opacity="0";
-		//document.getElementById("tp-weather-widget").style.pointerEvents = "none";
+		document.getElementById("tp-weather-widget").style.opacity="0";
+		document.getElementById("tp-weather-widget").style.pointerEvents = "none";
 		setTimeout("navbox.style.display='none';",250);
 	}
 	//alert(obj.id);
@@ -374,15 +373,86 @@ function changeWp (obj)
 		bgPreference="Default";
         break;
     case '2':
-        liveBgBox.style.display="none";
-		bgbox.style.backgroundImage = "url(https://api.neweb.top/bing.php)";
+        //bgbox.style.backgroundImage = "url(https://api.i-meto.com/bing?new)";
+		var bingWallpaper = localStorage.getItem("bing-wallpaper");
+		function loadBingWallpaper(headerMap) {
+			//document.body.style.backgroundImage = bingWallpaper;
+			bgbox.style.backgroundImage = bingWallpaper;
+		}
+		if (bingWallpaper) loadBingWallpaper();
+		liveBgBox.style.display="none";
 		bgbox.style.opacity = "1";
-		localStorage.setItem("bgPreference", "Default");
-		bgPreference="Default";
+		localStorage.setItem("bgPreference", "Bing");
+		bgPreference="Bing";
         break;
 
 	}
 }
+/*function ChangeBG()
+{	
+	var btnBG = document.getElementById("nav_function");
+	bgPreference = localStorage.getItem("bgPreference");
+	if(bgPreference != "Default"){
+		//document.body.style.backgroundImage = "url(images/BG_A_Default_1.jpg)";
+		bgbox.style.backgroundImage = "url(images/BG_A_Default_1.jpg)";
+		bgbox.style.opacity = "1";
+		btnBG.innerHTML = "切换为每日背景";
+		localStorage.setItem("bgPreference", "Default");
+	}else{
+		//bgbox.style.backgroundImage = "url(https://api.i-meto.com/bing?new)";
+		var bingWallpaper = localStorage.getItem("bing-wallpaper");
+		function loadBingWallpaper(headerMap) {
+			//document.body.style.backgroundImage = bingWallpaper;
+			bgbox.style.backgroundImage = bingWallpaper;
+		}
+		if (bingWallpaper) loadBingWallpaper();
+		bgbox.style.opacity = "1";
+		btnBG.innerHTML = "切换为默认背景";
+		localStorage.setItem("bgPreference", "Bing");
+	}
+};
+function getLike()
+{
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", backend);
+	xhr.setRequestHeader('Content-Type',' application/x-www-form-urlencoded');
+	xhr.send("action=getLikedCount&lastModified0="+lastModified0+"&rthServer="+rthServer+"&eTag0="+eTag0);
+	xhr.onreadystatechange = function(){ 
+		if (xhr.readyState==4 && xhr.status==200){ 
+			numLiked.innerText=xhr.responseText;
+		}
+	}
+}
+function likeClick()
+{
+	btnLike.style.MozTransform="scale(0.8)";
+	btnLike.style.WebkitTransform="scale(0.8)";
+	setTimeout(function(){
+		btnLike.style.MozTransform="scale(1.2)";
+		btnLike.style.WebkitTransform="scale(1.2)";
+	},100);
+	setTimeout(function(){
+		btnLike.style.MozTransform="scale(0.9)";
+		btnLike.style.WebkitTransform="scale(0.9)";
+	},200);
+	setTimeout(function(){
+		btnLike.style.MozTransform="scale(1)";
+		btnLike.style.WebkitTransform="scale(1)";
+	},300);
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", backend);
+	xhr.setRequestHeader('Content-Type',' application/x-www-form-urlencoded');
+	xhr.send("action=updateLikedCount");
+	xhr.onreadystatechange = function(){ 
+		if (xhr.readyState==4 && xhr.status==200){ 
+			if (xhr.responseText==="liked"){
+				alert("已经点过喜欢啦");
+			}else{
+				numLiked.innerText=xhr.responseText;
+			}
+		}
+	}
+}*/
 function Time(){
 	//var vWeek,vWeek_s,vDay;
 	//vWeek = ["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];
