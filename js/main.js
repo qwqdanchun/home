@@ -169,9 +169,16 @@ function loadNotes()
 		}
 	}
 	textNote.value = "";
+	pinnedNoteNum=localStorage.getItem("pinnedNoteNum");
+	if(pinnedNoteNum!=undefined&&pinnedNoteNum!= ""){
+		pinnedNoteContent.innerText=localStorage.getItem("note" + pinnedNoteNum);
+		pinnedNoteTime.innerText=localStorage.getItem("noteTime" + pinnedNoteNum);
+		showPinnedNote();
+	}
 }
 function newNote()
 {
+	noteToolBar.style.display = "none";
 	if(document.getElementById("noteItem" + currentEditingNote) != undefined){
 		document.getElementById("noteItem" + currentEditingNote).classList.remove("current");
 	}
@@ -191,6 +198,7 @@ function openNote(obj)
 	currentNoteIsNew = false;
 	currentEditingNote = obj.id.replace("noteItem","");
 	textNote.value = localStorage.getItem("note"+currentEditingNote);
+	noteToolBar.style.display = "block";
 	document.getElementById("noteItem" + currentEditingNote).classList.add("current");
 }
 function noteChanged()
@@ -199,6 +207,7 @@ function noteChanged()
 		textNote.style.left="200px";
 		textNote.style.width="420px";
 		noteListWrap.style.left="0px";
+		noteToolBar.style.display = "block";
 	}
 	if(textNote.value!=""&&currentNoteIsNew==true){
 		currentNotes = Number(currentNotes) + 1;
@@ -231,6 +240,7 @@ function noteChanged()
 		textNote.style.left="0px";
 		textNote.style.width="620px";
 		noteListWrap.style.left="-200px";
+		noteToolBar.style.display = "none";
 	}
 	if(textNote.value==""){
 		noteList.removeChild(document.getElementById("noteItem" + currentEditingNote));
@@ -238,10 +248,18 @@ function noteChanged()
 		currentNoteIsNew = true;
 		localStorage.setItem("currentNotes", currentNotes);
 		localStorage.setItem("maximumNoteNumber", Number(noteList.lastElementChild.id.replace("noteItem","")));
+		noteToolBar.style.display = "none";
 	}
 	if(document.getElementById("noteTitle" + currentEditingNote) != undefined){
 		document.getElementById("noteTitle" + currentEditingNote).innerText = textNote.value;
 		document.getElementById("noteTime" + currentEditingNote).innerText = currentTime;
+	}
+	if(currentEditingNote==pinnedNoteNum){
+		pinnedNoteContent.innerText=textNote.value;
+		pinnedNoteTime.innerText=currentTime;
+	}
+	if(currentEditingNote==pinnedNoteNum&&textNote.value==""){
+		unpinNote();
 	}
 }
 function saveNote()
@@ -254,6 +272,45 @@ function saveNote()
 		localStorage.removeItem("note" + currentEditingNote);
 		localStorage.removeItem("noteTime" + currentEditingNote);
 	}
+}
+function delNote()
+{
+	if(confirm("删除这条便笺？")){
+		textNote.value = "";
+		saveNote();
+	}
+}
+function pinNote()
+{
+	pinnedNoteContent.innerText=textNote.value;
+	pinnedNoteTime.innerText=document.getElementById("noteTime" + currentEditingNote).innerText;
+	pinnedNoteNum=currentEditingNote;
+	localStorage.setItem("pinnedNoteNum", currentEditingNote);
+	showPinnedNote();
+}
+function showPinnedNote()
+{
+	pinnedBox.style.display="block";
+	setTimeout(function(){
+		pinnedBox.style.opacity="1";
+		pinnedBox.style.transform="scale(1.05)";
+	},100);
+	setTimeout(function(){
+		pinnedBox.style.transform="scale(1)";
+	},350);
+}
+function unpinNote()
+{
+	pinnedNoteNum="";
+	localStorage.setItem("pinnedNoteNum", "");
+	pinnedBox.style.transform="scale(1.05)";
+	setTimeout(function(){
+		pinnedBox.style.transform="scale(0.5)";
+		pinnedBox.style.opacity="0";
+	},250);
+	setTimeout(function(){
+		pinnedBox.style.display="none";
+	},500);
 }
 function navboxScale0()
 {
@@ -435,8 +492,10 @@ function pinnedNoteHover(ev,obj)
 	if(m_clientX>pinnedNoteW*0.7 && m_clientY>pinnedNoteH*0.7){
 		obj.style.transform="rotateX(-10deg) rotateY(5deg)";
 	}
+			btnUnpin.style.opacity="1";
 }
 function pinnedNoteHover2(obj) 
 {
 	obj.style.transform="rotate3d(0,0,0,0deg)";
+	btnUnpin.style.opacity="0";
 }

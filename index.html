@@ -1,139 +1,215 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-		<meta name="description" content="簞純的个人起始页~" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-        <title>开始</title>
-        <link rel="shortcut icon" href="images/icon_new.ico"/>
-        <script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="js/keyword.js"></script>
-        <script type="text/javascript" src="js/quote.js"></script>
-        <style type="text/css">
-        	@import "styles/a.css";
-        </style>
-
-      <script>
-			var _hmt = _hmt || [];
-			(function() {
- 			 var hm = document.createElement("script");
- 			 hm.src = "https://hm.baidu.com/hm.js?e603aeb74dab91bfba0a8b385dd69454";
- 			 var s = document.getElementsByTagName("script")[0]; 
- 			 s.parentNode.insertBefore(hm, s);
-			})();
-	</script>
-
-      
-
-    </head>
-
-    <body>
-        <form id="form0" action="https://www.baidu.com/s" target="_blank">
-        	<div id="liveBgBox"></div>
-            <input type="text" class="input" id="input0" name="word" size="30" placeholder="Search" autocomplete="off" onfocus="Input_Focus()" onblur="Input_Blur()" onkeydown="Input_KeyDown(event)">
-            <div class="bgbox" id="bgbox"></div>
-			<div class="cover" id="cover"></div>
-            <input type="submit" class="btn_search" value="Search">
-        </form>
-        <div class="keyword" id="keyword"></div>
-        <div class="quotebox" id="quotebox">
-        	<p class="quote-content"></p>
-            <p class="quote-author"></p>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="簞純的个人起始页~" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>开始</title>
+    <link rel="shortcut icon" href="images/icon_new.ico" />
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/keyword.js"></script>
+    <script type="text/javascript" src="js/quote.js"></script>
+    <style type="text/css">@import "styles/a.css";</style>
+    <script>// 浏览器标题切换  
+      var OriginTitile = document.title; // 保存之前页面标题  
+      var titleTime;
+      document.addEventListener('visibilitychange',
+      function() {
+        if (document.hidden) {
+          document.title = '草榴社區主論壇 - 1024';
+          clearTimeout(titleTime);
+        } else {
+          document.title = '生命-1s ~ ';
+          titleTime = setTimeout(function() {
+            document.title = OriginTitile;
+          },
+          1000); // 2秒后恢复原标题  
+        }
+      });</script>
+    <script>var _hmt = _hmt || []; (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?e603aeb74dab91bfba0a8b385dd69454";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();</script>
+    <div id="he-plugin-simple"></div>
+    <script>WIDGET = {
+        CONFIG: {
+          "modules": "01234",
+          "background": 5,
+          "tmpColor": "4A4A4A",
+          "tmpSize": 16,
+          "cityColor": "4A4A4A",
+          "citySize": 16,
+          "aqiSize": 16,
+          "weatherIconSize": 24,
+          "alertIconSize": 18,
+          "padding": "10px 10px 10px 10px",
+          "shadow": "1",
+          "language": "zh",
+          "borderRadius": 5,
+          "fixed": "false",
+          "vertical": "middle",
+          "horizontal": "left",
+          "key": "1e2062f8d8bd4db88e710a6814c90e30"
+        }
+      }</script>
+    <script src="https://widget.heweather.net/simple/static/js/he-simple-common.js?v=1.1"></script>
+  </head>
+  
+  <body>
+    <form id="form0" action="https://www.baidu.com/s" target="_blank">
+      <div id="liveBgBox"></div>
+      <input type="text" class="input" id="input0" name="word" size="30" placeholder="Search" autocomplete="off" onfocus="Input_Focus()" onblur="Input_Blur()" onkeydown="Input_KeyDown(event)">
+      <div class="bgbox" id="bgbox"></div>
+      <div class="cover" id="cover"></div>
+      <input type="submit" class="btn_search" value="Search"></form>
+    <div class="keyword" id="keyword"></div>
+    <div class="quotebox" id="quotebox">
+      <p class="quote-content"></p>
+      <p class="quote-author"></p>
+    </div>
+    <div class="navbox" id="navbox" onclick="Navbox_Click(event)">
+      <div class="navbox0">
+        <div class="navboxes" id="navbox1">
+          <table>
+            <tr>
+              <td>
+                <a href="https://www.baidu.com/" target="_blank" class="nav_links">百度</a></td>
+              <td>
+                <a href="https://www.google.com/" target="_blank" class="nav_links">谷歌</a></td>
+              <td>
+                <a href="https://www.bing.com/" target="_blank" class="nav_links">必应</a></td>
+              <td>
+                <a href="https://www.sogou.com/" target="_blank" class="nav_links">搜狗</a></td>
+              <td>
+                <a href="https://blog.dcyy.fun" target="_blank" class="nav_links">簞純博客</a></td>
+            </tr>
+            <tr>
+              <td>
+                <a href="https://www.weibo.com/" target="_blank" class="nav_links">微博</a></td>
+              <td>
+                <a href="https://www.taobao.com/" target="_blank" class="nav_links">爱奇艺</a></td>
+              <td>
+                <a href="https://www.bilibili.com/" target="_blank" class="nav_links">Bilibili</a></td>
+              <td>
+                <a href="https://music.163.com/" target="_blank" class="nav_links">网易云音乐</a></td>
+              <td>
+                <a href="http://www.dcyy.fun" target="_blank" class="nav_links">簞純影视</a></td>
+            </tr>
+            <tr>
+              <td>
+                <a href="https://www.taobao.com/" target="_blank" class="nav_links">淘宝</a></td>
+              <td>
+                <a href="https://www.tmall.com/" target="_blank" class="nav_links">天猫</a></td>
+              <td>
+                <a href="https://www.jd.com/" target="_blank" class="nav_links">京东</a></td>
+              <td>
+                <a href="https://pan.baidu.com/" target="_blank" class="nav_links">百度网盘</a></td>
+              <td>
+                <a href="https://sockboom.cn/auth/register?affid=3950" target="_blank" class="nav_links">sockboom</a></td>
+            </tr>
+            <tr>
+              <td>
+                <a href="https://mail.qq.com/" target="_blank" class="nav_links">qq邮箱</a></td>
+              <td>
+                <a href="https://mail.sina.com.cn/ " target="_blank" class="nav_links">新浪邮箱</a></td>
+              <td>
+                <a href="https://email.163.com/" target="_blank" class="nav_links">163邮箱</a></td>
+              <td>
+                <a href="https://www.weiyun.com/" target="_blank" class="nav_links">微云</a></td>
+              <td>
+                <a href="https://github.com" target="_blank" class="nav_links">github</a></td>
+            </tr>
+            <tr>
+              <td>
+                <a href="http://www.outlook.com/ " target="_blank" class="nav_links">outlook</a></td>
+              <td>
+                <a href="http://mail.google.com/ " target="_blank" class="nav_links">Gmail</a></td>
+              <td>
+                <a href="https://mega.co.nz/" target="_blank" class="nav_links">mega</a></td>
+              <td>
+                <a href="https://www.resilio.com/individuals/" target="_blank" class="nav_links">sync</a></td>
+              <td>
+                <a href="https://www.verysync.com/ " target="_blank" class="nav_links">微力同步</a></td>
+            </tr>
+          </table>
         </div>
-        <div class="navbox" id="navbox" onclick="Navbox_Click(event)">
-        	<div class="navbox0">
-	        	<div class="navboxes" id="navbox1">
-	        		<table>
-	        			
-	        			<tr>
-	        				<td><a href="https://www.baidu.com/" target="_blank" class="nav_links">百度</a></td>
-			        		<td><a href="https://www.google.com/" target="_blank" class="nav_links">谷歌</a></td>
-			        		<td><a href="https://www.bing.com/" target="_blank" class="nav_links">必应</a></td>
-			        		<td><a href="https://www.sogou.com/" target="_blank" class="nav_links">搜狗</a></td>
-			        		<td><a href="https://blog.dcyy.fun" target="_blank" class="nav_links">簞純博客</a></td>
-		        		</tr>
-		        		<tr>
-			        		<td><a href="https://www.weibo.com/" target="_blank" class="nav_links">微博</a></td>
-			        		<td><a href="https://www.taobao.com/" target="_blank" class="nav_links">爱奇艺</a></td>
-			        		<td><a href="https://www.bilibili.com/" target="_blank" class="nav_links">Bilibili</a></td>
-                          	<td><a href="https://music.163.com/" target="_blank" class="nav_links">网易云音乐</a></td>
-			        		<td><a href="http://movie.qwqdanchun.com" target="_blank" class="nav_links">簞純影视</a></td>
-		        		</tr>
-		        		<tr>
-	        				<td><a href="https://www.taobao.com/" target="_blank" class="nav_links">淘宝</a></td>
-			        		<td><a href="https://www.tmall.com/" target="_blank" class="nav_links">天猫</a></td>
-			        		<td><a href="https://www.jd.com/" target="_blank" class="nav_links">京东</a></td>
-	        				<td><a href="https://pan.baidu.com/" target="_blank" class="nav_links">百度网盘</a></td>
-			        		<td><a href="https://sockboom.us/auth/register?affid=3950" target="_blank" class="nav_links">sockboom</a></td>
-		        		</tr>
-                      	<tr>
-	        				<td><a href="https://mail.qq.com/" target="_blank" class="nav_links">qq邮箱 </a></td>
-			        		<td><a href="https://mail.sina.com.cn/ " target="_blank" class="nav_links">新浪邮箱</a></td>
-			        		<td><a href="https://email.163.com/" target="_blank" class="nav_links">163邮箱</a></td>
-                            <td><a href="https://www.weiyun.com/" target="_blank" class="nav_links">微云</a></td>
-                          	<td><a href="https://github.com" target="_blank" class="nav_links">github</a></td>
-		        		</tr>
-		        		<tr>
-			        		<td><a href="http://www.outlook.com/ " target="_blank" class="nav_links">outlook</a></td>
-			        		<td><a href="http://mail.google.com/ " target="_blank" class="nav_links">Gmail</a></td>
-			        		<td><a href="https://mega.co.nz/" target="_blank" class="nav_links">mega</a></td>
-			        		<td><a href="https://www.resilio.com/individuals/" target="_blank" class="nav_links">sync</a></td>
-			        		<td><a href="https://www.verysync.com/ " target="_blank" class="nav_links">微力同步</a></td>
-		        		</tr>
-	        		</table>
-	        	</div>
-	        	<div class="navboxes" id="navbox2">
-	        		<span class="shouldNotFade" id="noteListWrap">
-		        		<span class="shouldNotFade" id="noteList">
-		        			<div class="noteItem shouldNotFade" onclick="newNote()">
-		        				<i class="iconfont shouldNotFade" id="iconAdd">&#xe620;</i><span class="noteTitle shouldNotFade" id="noteTitle0">新便笺</span>
-		        			</div>
-		        		</span>
-		        	</span>
-	        		<textarea class="shouldNotFade" id="textNote" placeholder="在此键入以创建新的便笺" oninput="saveNote()"></textarea>
-	        	</div>
-        	</div>
-        	<div class="navboxSwitch">
-        		<span class="nbSwitch shouldNotFade" id="nbSwitch1" onclick="nbSwitch1_Click()"><span class="shouldNotFade current" id="nbSwitch1_0"></span></span>
-        		<span class="nbSwitch shouldNotFade" id="nbSwitch2" onclick="nbSwitch2_Click()"><span class="shouldNotFade"  id="nbSwitch2_0"></span></span>
-        	</div>
+        <div class="navboxes" id="navbox2">
+          <span class="shouldNotFade" id="noteListWrap">
+            <span class="shouldNotFade" id="noteList">
+              <div class="noteItem shouldNotFade" onclick="newNote()">
+                <i class="iconfont shouldNotFade" id="iconAdd">&#xe620;</i>
+                <span class="noteTitle shouldNotFade" id="noteTitle0">新便笺</span></div>
+            </span>
+          </span>
+          <textarea class="shouldNotFade" id="textNote" placeholder="在此键入以创建新的便笺" oninput="saveNote()"></textarea>
+          <div class="shouldNotFade" id="noteToolBar">
+            <span class="toolBarBtns" id="btnDelNote" title="删除便笺" onclick="delNote()">
+              <i class="iconfont shouldNotFade">&#xe614;</i></span>
+            <span class="toolBarBtns" id="btnPinNote" title="固定便笺到主屏幕" onclick="pinNote()">
+              <i class="iconfont shouldNotFade" id="iconPin">&#xe849;</i></span>
+          </div>
         </div>
-        <div class="title" id="title" onclick="Title_Click(event)"><h1 id="titleText">簞純</h1></div>
-        <span id="btnSettings" title="设置" onclick="showSettings()"><i class="iconfont">&#xe673;</i></span>
-        <div id="btnLike"></div>
-        <div id="numLike"></div>
-        <div class="footer">
-            &copy; 2019&nbsp&nbsp
-            <a title="QQ:287182701" class="links" onclick="showAbout()">簞純</a>  版权所有</br>
-        	<a href="http://www.miitbeian.gov.cn" class="links" target="_blank">鲁ICP备19010095号</a>&nbsp&nbsp
-            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37010302000735" class="links" target="_blank">鲁公网安备37010302000735号</a>   &nbsp&nbsp
-            <img src="images/beian.png" href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37010302000735" class="links" target="_blank"/>
+      </div>
+      <div class="navboxSwitch">
+        <span class="nbSwitch shouldNotFade" id="nbSwitch1" onclick="nbSwitch1_Click()">
+          <span class="shouldNotFade current" id="nbSwitch1_0"></span>
+        </span>
+        <span class="nbSwitch shouldNotFade" id="nbSwitch2" onclick="nbSwitch2_Click()">
+          <span class="shouldNotFade" id="nbSwitch2_0"></span>
+        </span>
+      </div>
+    </div>
+    <div class="title" id="title" onclick="Title_Click(event)">
+      <h1 id="titleText">簞純</h1></div>
+    <span id="btnSettings" title="设置" onclick="showSettings()">
+      <i class="iconfont">&#xe673;</i></span>
+    <div id="btnLike"></div>
+    <div id="numLike"></div>
+<div id="pinnedBox">
+<div class="pinnedNote" id="pinnedNote" onmousemove="pinnedNoteHover(event,this)" onmouseout="pinnedNoteHover2(this)">
+<div id="pinnedNoteContent">簞純</div>
+<div id="pinnedNoteTime">2019年8月13日 05:20</div>
+<span class="btnCloseS" id="btnUnpin" onclick="unpinNote()" title="取消固定"></span>
+</div>
+</div>
+    <div class="footer">&copy; 2019&nbsp&nbsp
+      <a title="QQ:287182701" class="links" onclick="showAbout()">簞純</a>版权所有</br>
+      <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37010302000735" class="links" target="_blank">&nbsp&nbsp&nbsp&nbsp鲁公网安备37010302000735号</a>&nbsp&nbsp
+      <img src="images/beian.png" href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37010302000735" class="links" target="_blank" /></div>
+    <div class="cover1" id="cover1">
+      <div class="popUp" id="popBg">
+        <span class="btnClose" onclick="closePop(this)" onmouseover="btnCloseHover(this)" onmouseout="btnCloseHover2()"></span>
+        <div class="pTitle">背景图像偏好
+          <!--<div class="pTitleU"></div>--></div>
+        <div class="pContent">
+          <input type="radio" class="radioBox" id="useDefaultWp" name="rWallpaper" value="1" onchange="changeWp(this)"></input>
+          <label class="lblRadioBox" for="useDefaultWp">默认壁纸</label>
+          <input type="radio" class="radioBox" id="useBingWp" name="rWallpaper" value="2" onchange="changeWp(this)" checked="true"></input>
+          <label class="lblRadioBox" for="useBingWp">必应每日美图</label></div>
+      </div>
+      <div class="popUp" id="popAbout">
+        <span class="btnClose" onclick="closePop(this)" onmouseover="btnCloseHover(this)" onmouseout="btnCloseHover2()"></span>
+        <div class="pTitle centerAligned">网页介绍</div>
+        <div class="pContent centerAligned">
+          <p id="pVersion">version</p>
+          <p class="pAbout">这里是簞純的个人起始页(〃'▽'〃)
+            <br>
+            <br>Have a nice day here!</p>
+          <div class="updateLog">
+            <p>更新日志</p>
+            <p>最后更新：2019.3.8</p>2019.3.8 上线
+            <p>2019.4.2 更新网址</p>2019.6.18 添加新域名https
+            <p>2019.7.22 更新网址</p>
+            <p>2019.10.7 添加天气插件</p>
+          </div>
         </div>
-        <div class="cover1" id="cover1">
-        	<div class="popUp" id="popBg">
-        		<span class="btnClose" onclick="closePop(this)" onmouseover="btnCloseHover(this)" onmouseout="btnCloseHover2()"></span>
-        		<div class="pTitle">背景图像偏好<!--<div class="pTitleU"></div>--></div>
-        		<div class="pContent">
-        			<input type="radio" class="radioBox" id="useDefaultWp" name="rWallpaper" value="1" onchange="changeWp(this)"></input>
-					<label class="lblRadioBox" for="useDefaultWp">默认壁纸</label>
-					<input type="radio" class="radioBox" id="useBingWp" name="rWallpaper" value="2" onchange="changeWp(this)" checked="true"></input>
-					<label class="lblRadioBox" for="useBingWp">必应每日美图</label>
-        		</div>
-        	</div>
-        	<div class="popUp" id="popAbout">
-        		<span class="btnClose" onclick="closePop(this)" onmouseover="btnCloseHover(this)" onmouseout="btnCloseHover2()"></span>
-        		<div class="pTitle centerAligned">网页介绍</div>
-        		<div class="pContent centerAligned">
-        			<p id="pVersion">version</p>
-        			<p class="pAbout">这里是簞純的个人起始页(〃'▽'〃)<br><br>Have a nice day here!</p>
-        			<div class="updateLog">
-                      <p>更新日志</p><p>最后更新：2019.3.8</p>2019.3.8 上线<p>2019.4.2 更新网址</p>2019.6.18 添加新域名https<p>2019.7.22 更新网址</p>
-		            </div>
-        		</div>
-        	</div>
-        </div>
+      </div>
+    </div>
+    </script>
+  </body>
 
-		</script>
-    </body>
 </html>

@@ -29,13 +29,13 @@ body {
 	100% {opacity: 1;}
 }
 @font-face {
-	font-family: 'iconfont';  /* project id 1010028 */
-	src: url('https://at.alicdn.com/t/font_1010028_me79rfbf5kd.eot');
-	src: url('https://at.alicdn.com/t/font_1010028_me79rfbf5kd.eot?#iefix') format('embedded-opentype'),
-	url('https://at.alicdn.com/t/font_1010028_me79rfbf5kd.woff2') format('woff2'),
-	url('https://at.alicdn.com/t/font_1010028_me79rfbf5kd.woff') format('woff'),
-	url('https://at.alicdn.com/t/font_1010028_me79rfbf5kd.ttf') format('truetype'),
-	url('https://at.alicdn.com/t/font_1010028_me79rfbf5kd.svg#iconfont') format('svg');
+  font-family: 'iconfont';  /* project id 1010028 */
+  src: url('https://at.alicdn.com/t/font_1010028_3bo4qcxnqdi.eot');
+  src: url('https://at.alicdn.com/t/font_1010028_3bo4qcxnqdi.eot?#iefix') format('embedded-opentype'),
+  url('https://at.alicdn.com/t/font_1010028_3bo4qcxnqdi.woff2') format('woff2'),
+  url('https://at.alicdn.com/t/font_1010028_3bo4qcxnqdi.woff') format('woff'),
+  url('https://at.alicdn.com/t/font_1010028_3bo4qcxnqdi.ttf') format('truetype'),
+  url('https://at.alicdn.com/t/font_1010028_3bo4qcxnqdi.svg#iconfont') format('svg');
 }
 .iconfont{
 	font-family: "iconfont" !important;
@@ -359,7 +359,7 @@ input:focus:-ms-input-placeholder {
 }
 #navbox1 {
 	left: 0px;
-	height: 250px;
+	height: 200px;
 }
 #navbox2 {
 	left: 100%;
@@ -369,12 +369,12 @@ input:focus:-ms-input-placeholder {
 .navboxSwitch,.navboxTmp {
 	position: absolute;
 	left: 50%;
-	width: 800px;
-	margin-left: -400px;
+	width: 650px;
+	margin-left: -325px;
 	text-align: center;
 }
 .navboxSwitch {
-	bottom: 200px;
+	bottom: 250px;
 }
 .navboxTmp {
 	bottom: 200px;
@@ -449,7 +449,7 @@ input:focus:-ms-input-placeholder {
 #textNote {
 	position: absolute;
 	left: 0px;
-	width: 770px;
+	width: 620px;
 	height: 180px;
 	padding: 10px;
 	padding-left: 20px;
@@ -490,6 +490,36 @@ textarea:hover::-moz-placeholder {
 }
 textarea:hover::-ms-input-placeholder {
 	color: rgba(255,255,255,0.7);
+}
+#noteToolBar {
+	position: absolute;
+	display: none;
+	left: 210px;
+	top: 210px;
+}
+.toolBarBtns {
+	margin-left: 5px;
+	color: rgba(255,255,255,0.35);
+	cursor: pointer;
+	-webkit-transition: all 0.25s;
+	-moz-transition: all 0.25s;
+	-o-transition: all 0.25s;
+	-ms-transition: all 0.25s;
+	transition: all 0.25s;
+}
+.toolBarBtns:hover {
+	color: rgba(255,255,255,0.6);
+}
+.toolBarBtns:active {
+	color: rgba(255,255,255,0.8);
+}
+#iconPin {
+	position: absolute;
+	-ms-transform: rotate(35deg);
+	-moz-transform: rotate(35deg);
+	-webkit-transform: rotate(35deg);
+	-o-transform: rotate(35deg);
+	transform: rotate(35deg);
 }
 .nbSwitch {
 	position: absolute;
@@ -627,7 +657,7 @@ a.links:active {color: rgba(255,255,255,0.6);}
 .footer {
 	position: absolute;
 	top: 100%;
-	margin-top:-70px;
+	margin-top:-90px;
 	width: 100%;
 	font-size: 12px;
 	color: rgba(255,255,255,0.6);
@@ -728,12 +758,46 @@ a.links:active {color: rgba(255,255,255,0.6);}
 .btnClose:active::before,.btnClose:active::after {
 	background-color: rgba(112,192,0,0.5);
 }
+.btnCloseS {
+	z-index: 99;
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	top: 12px;
+	right: 12px;
+	cursor: pointer;
+	opacity: 0;
+	transition: all 0.25s;
+}
+.btnCloseS::before, .btnCloseS::after {
+	content: '';
+	position: absolute;
+	height: 1px;
+	width: 100%;
+	top: 50%;
+	left: 0;
+	margin-top: -1px;
+	background-color: rgb(160,160,160);
+	transition: all 0.25s;
+}
+.btnCloseS::before {
+	transform: rotate(45deg);
+}
+.btnCloseS::after {
+	transform: rotate(-45deg);
+}
+.btnCloseS:hover::before,.btnCloseS:hover::after {
+	background-color: rgb(214,0,42);
+}
+.btnCloseS:active::before,.btnCloseS:active::after {
+	background-color: rgba(214,0,42,0.5);
+}
 .pTitle {
 	position: relative;
 	left: 70px;
 	top: 40px;
 	font-size: 25px;
-	font-family: "Microsoft Yahei","Microsoft Yahei Light",Helvetica,sans-serif;
+	font-family: "Microsoft Yahei Bold","Microsoft Yahei",Helvetica,sans-serif,"等线";
 }
 .pTitle.centerAligned {
 	width: 100%;
@@ -765,12 +829,12 @@ a.links:active {color: rgba(255,255,255,0.6);}
 	text-align: center;
 }
 #pVersion {
-	font-size: 13px;
-	color: rgba(0,0,0,1);
+	font-size: 11px;
+	color: rgba(0,0,0,0.5);
 }
 .pAbout {
-	font-size: 14px;
-	color: rgba(0,0,0,1);
+	font-size: 12px;
+	color: rgba(0,0,0,0.8);
 	margin-top: -5px;
 }
 .updateLog {
@@ -779,11 +843,11 @@ a.links:active {color: rgba(255,255,255,0.6);}
 	width: 90%;
 	left: 5%;
 	height: 220px;
-	border-top: solid 1px rgba(112,192,0,1);
+	border-top: solid 1px rgba(112,192,0,0.6);
 	text-align: left;
-	font-size: 13px;
+	font-size: 11px;
 	line-height: 18px;
-	color:rgba(0,0,0,1);
+	color:rgba(0,0,0,0.8);
 	overflow-y:scroll;
 }
 .updateLog::-webkit-scrollbar {
@@ -887,15 +951,27 @@ a.links1:active {color: rgba(55,100,0,1.0);}
 	opacity: 0.8 !important;
 }
 #pinnedBox {
+	display: none;
+	opacity: 0;
 	position: absolute;
 	width: 310px;
-	height: 120px;
-	perspective-origin: 185px 87.5px;
+	height: 95px;
+	perspective-origin: 185px 67.5px;
 	perspective: 500px;
+	-webkit-transition: all 0.25s;
+	-moz-transition: all 0.25s;
+	-o-transition: all 0.25s;
+	-ms-transition: all 0.25s;
+	transition: all 0.25s;
+	-ms-transform: rotate3d(1,1,0,90deg);
+	-moz-transform: rotate3d(1,1,0,90deg);
+	-webkit-transform: rotate3d(1,1,0,90deg);
+	-o-transform: rotate3d(1,1,0,90deg);
+	transform: scale(0.5);
 }
 .pinnedNote {
 	position: absolute;
-	top: 60px;
+	top: 40px;
 	left: 60px;
 	width: 250px;
 	height: 55px;
@@ -912,7 +988,7 @@ a.links1:active {color: rgba(55,100,0,1.0);}
 	-ms-transition: all 0.25s;
 	transition: all 0.25s;
 }
-.pinnedNoteContent {
+#pinnedNoteContent {
 	position: absolute;
 	left: 20px;
 	top: 10px;
@@ -921,7 +997,7 @@ a.links1:active {color: rgba(55,100,0,1.0);}
 	font-size: small;
 	font-family: "Microsoft Yahei Bold","Microsoft Yahei",Helvetica,sans-serif,"等线";
 }
-.pinnedNoteTime {
+#pinnedNoteTime {
 	position: absolute;
 	left: 20px;
 	bottom: 10px;
@@ -938,7 +1014,7 @@ a.links1:active {color: rgba(55,100,0,1.0);}
 	.keyword {top: 136px;margin-left: -43.3%;width: 86%;}
 	.keyword span {font-size: small;width: 100%;}
 	.navbox0 {width: 100%;left: 0px;margin-left: 0px;margin-top: 170px;}
-	table {position: absolute;left: 50%;margin-left: -200px;}
+	table {position: absolute;left: 50%;margin-left: -160px;}
 	.nav_links {margin: 0px; margin-top: 0px;padding-left: 14px;padding-right: 14px;font-size: 0.7em;}
 	.quotebox {top: 550px;font-size: 0.7em;width: 80%;left: 50%;margin-left: -40%;}
 	#btnSettings {right: 20px; top: 10px;}
@@ -954,6 +1030,3 @@ a.links1:active {color: rgba(55,100,0,1.0);}
 	.bgbox,body {background-size: auto;background-position: center;background-attachment: fixed;} 
 	.quotebox {font-size: small;margin-top: -15%;}
 }
-
-
-
