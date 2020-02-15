@@ -34,7 +34,7 @@ window.onload=function(){
         bgbox.style.opacity="1";
         break;
     case 'Bing':
-    	bgbox.style.backgroundImage = "url(https://api.neweb.top/bing.php)";
+    	bgbox.style.backgroundImage = "url(https://api.isoyu.com/bing_images.php)";
         bgbox.style.opacity="1";
         break;
 	}
@@ -432,7 +432,7 @@ function changeWp (obj)
         break;
     case '2':
         liveBgBox.style.display="none";
-		bgbox.style.backgroundImage = "url(https://api.neweb.top/bing.php)";
+		bgbox.style.backgroundImage = "url(https://api.isoyu.com/bing_images.php)";
 		bgbox.style.opacity = "1";
 		localStorage.setItem("bgPreference", "Default");
 		bgPreference="Default";
