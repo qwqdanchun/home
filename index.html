@@ -6,12 +6,11 @@
     <meta name="description" content="簞純的个人起始页~" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>开始</title>
-    <link rel="shortcut icon" href="images/icon_new.ico" />
-    <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="js/keyword.js"></script>
-    <script type="text/javascript" src="js/quote.js"></script>
-    <style type="text/css">@import "styles/a.css";</style>
+    <link rel="shortcut icon" href="static/icon_new.ico" />
+    <script type="text/javascript" src="static/main.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="static/keyword.js"></script>
+    <style type="text/css">@import "static/a.css";</style>
     <script>// 浏览器标题切换  
       var OriginTitile = document.title; // 保存之前页面标题  
       var titleTime;
@@ -28,12 +27,16 @@
           1000); // 2秒后恢复原标题  
         }
       });</script>
-    <script>var _hmt = _hmt || []; (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?e603aeb74dab91bfba0a8b385dd69454";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();</script>
+      <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?05b3339f963860447ac047b1b74d4456";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
     <div id="he-plugin-simple"></div>
     <script>WIDGET = {
         CONFIG: {
@@ -61,7 +64,6 @@
   
   <body>
     <form id="form0" action="https://www.baidu.com/s" target="_blank">
-      <div id="liveBgBox"></div>
       <input type="text" class="input" id="input0" name="word" size="30" placeholder="Search" autocomplete="off" onfocus="Input_Focus()" onblur="Input_Blur()" onkeydown="Input_KeyDown(event)">
       <div class="bgbox" id="bgbox"></div>
       <div class="cover" id="cover"></div>
@@ -85,7 +87,7 @@
               <td>
                 <a href="https://www.sogou.com/" target="_blank" class="nav_links">搜狗</a></td>
               <td>
-                <a href="https://blog.dcyy.fun" target="_blank" class="nav_links">簞純博客</a></td>
+                <a href="https://blog.qwqdanchun.cn" target="_blank" class="nav_links">簞純博客</a></td>
             </tr>
             <tr>
               <td>
@@ -97,7 +99,7 @@
               <td>
                 <a href="https://music.163.com/" target="_blank" class="nav_links">网易云音乐</a></td>
               <td>
-                <a href="http://www.dcyy.fun" target="_blank" class="nav_links">簞純影视</a></td>
+                <a href="http://movie.qwqdanchun.com" target="_blank" class="nav_links">簞純影视</a></td>
             </tr>
             <tr>
               <td>
@@ -109,7 +111,7 @@
               <td>
                 <a href="https://pan.baidu.com/" target="_blank" class="nav_links">百度网盘</a></td>
               <td>
-                <a href="https://sockboom.cn/auth/register?affid=3950" target="_blank" class="nav_links">sockboom</a></td>
+                <a href="https://sockboom.zone/auth/register?affid=3950" target="_blank" class="nav_links">sockboom</a></td>
             </tr>
             <tr>
               <td>
@@ -176,40 +178,9 @@
 <span class="btnCloseS" id="btnUnpin" onclick="unpinNote()" title="取消固定"></span>
 </div>
 </div>
-    <div class="footer">&copy; 2019&nbsp&nbsp
-      <a title="QQ:287182701" class="links" onclick="showAbout()">簞純</a>版权所有</br>
-      <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37010302000735" class="links" target="_blank">&nbsp&nbsp&nbsp&nbsp鲁公网安备37010302000735号</a>&nbsp&nbsp
-      <img src="images/beian.png" href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37010302000735" class="links" target="_blank" /></div>
-    <div class="cover1" id="cover1">
-      <div class="popUp" id="popBg">
-        <span class="btnClose" onclick="closePop(this)" onmouseover="btnCloseHover(this)" onmouseout="btnCloseHover2()"></span>
-        <div class="pTitle">背景图像偏好
-          <!--<div class="pTitleU"></div>--></div>
-        <div class="pContent">
-          <input type="radio" class="radioBox" id="useDefaultWp" name="rWallpaper" value="1" onchange="changeWp(this)"></input>
-          <label class="lblRadioBox" for="useDefaultWp">默认壁纸</label>
-          <input type="radio" class="radioBox" id="useBingWp" name="rWallpaper" value="2" onchange="changeWp(this)" checked="true"></input>
-          <label class="lblRadioBox" for="useBingWp">必应每日美图</label></div>
-      </div>
-      <div class="popUp" id="popAbout">
-        <span class="btnClose" onclick="closePop(this)" onmouseover="btnCloseHover(this)" onmouseout="btnCloseHover2()"></span>
-        <div class="pTitle centerAligned">网页介绍</div>
-        <div class="pContent centerAligned">
-          <p id="pVersion">version</p>
-          <p class="pAbout">这里是簞純的个人起始页(〃'▽'〃)
-            <br>
-            <br>Have a nice day here!</p>
-          <div class="updateLog">
-            <p>更新日志</p>
-            <p>最后更新：2019.3.8</p>2019.3.8 上线
-            <p>2019.4.2 更新网址</p>2019.6.18 添加新域名https
-            <p>2019.7.22 更新网址</p>
-            <p>2019.10.7 添加天气插件</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    </script>
+    <div class="footer">&copy; 2019
+      <a title="QQ:287182701" class="links" onclick="showAbout()">簞純</a>版权所有
+      <a href="http://www.beian.miit.gov.cn/" class="links" target="_blank">鲁ICP备20004949号</a>
   </body>
 
 </html>
