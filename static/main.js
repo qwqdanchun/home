@@ -88,12 +88,6 @@ function Navbox_Click(event)
 		bgbox.style.filter="";
 		//}
 		navbox.style.opacity="0";
-		btnSettings.style.opacity = "0";
-		btnSettings.style.cursor = "default";
-		btnLike.style.opacity="0";
-		btnLike.style.cursor="default";
-		//document.getElementById("tp-weather-widget").style.opacity="0";
-		//document.getElementById("tp-weather-widget").style.pointerEvents = "none";
 		setTimeout("navbox.style.display='none';",250);
 	}
 	//alert(obj.id);
