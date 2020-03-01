@@ -7,7 +7,7 @@ $(document).ready(function(){
     var content="";
     var author="";
     var getQuote = function(){
-        $.getJSON("https://sslapi.hitokoto.cn/?c=g&encode=json",function(json){
+        $.getJSON("https://v1.hitokoto.cn/?c=g&encode=json",function(json){
             content = json["hitokoto"];
             author = json["from"];
             //console.log(content+"_"+author);
