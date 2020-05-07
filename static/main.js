@@ -10,38 +10,32 @@ window.onload=function(){
 	isIphone =!ipad && ua.match(/(iPhone\sOS)\s([\d_]+)/),
 	isAndroid = ua.match(/(Android)\s+([\d.]+)/),
 	isMobile = isIphone || isAndroid;
+	bgPreference = "Bing";
+	bgbox.style.backgroundImage = "url(/static/bing.php)";
+        bgbox.style.opacity="1";
 	if(isMobile){
 		form0.action="http://m.baidu.com/s";
 		bgbox.style.backgroundSize="auto 100%";
 		bgbox.style.backgroundPosition="center";
 	}
-	bgPreference = localStorage.getItem("bgPreference");
-	if(bgPreference == undefined){
-		localStorage.setItem("bgPreference", "Bing");
-		bgPreference = "Bing";
-	}
-	switch (bgPreference) {
-    case 'Bing':
-    	bgbox.style.backgroundImage = "url(/static/bing.php)";
-        bgbox.style.opacity="1";
-        break;
-	}
 	loadNotes();
 };
-function Input_KeyDown(event){
-	event = event || window.event;
-	source = event.srcElement; 
-    if(event.keyCode==13){
-    	var str = input0.value;
-    	var finalStr=str.replace("翻译：","");
-    	if(str.indexOf("翻译：") != -1){
-			form0.action="http://fanyi.baidu.com/#en/zh/"+finalStr;
-			input0.name=""; 
-		}else{
-			form0.action="http://www.baidu.com/s"
-			input0.name="word"; 
-		}  
-		$("form").submit();         
+function Input_KeyDown(event) {
+    if (event.keyCode == 13) {
+        var str = input0.value;
+        var finalStr = str.replace("翻译：", "");
+        if (/^[a-z]+:\/\/[a-z0-9_\-\/.#?=%]+$/i.test(str)) {
+            open(str);
+            Input_Blur();
+            return false;
+        } else if (str.indexOf("翻译：") != -1) {
+            form0.action = "https://fanyi.baidu.com/#en/zh/" + finalStr;
+            input0.name = "";
+        } else {
+            form0.action = "https://www.baidu.com/s";
+                input0.name = "word";
+        }
+        setTimeout(() => Input_Blur(), 50);
     }
 }
 function Input_Focus()
@@ -56,16 +50,21 @@ function Input_Focus()
 		title.style.top="30px";
 		input0.style.top="100px";
 	}
-};
+}
 function Input_Blur()
 {
-	input0.value="";
+    window.getSelection().empty();
+	//input0.value="";
 	quotebox.style.opacity="0";
 	if(isMobile){
 		title.style.top="100px";
 		input0.style.top="170px";
 	}
-};
+}
+
+function Keyword_Click() {
+    setTimeout(() => Input_Blur(), 50);
+}
 function Title_Click(event)
 {
 	if($(navbox).css("display")=="none"){
@@ -86,7 +85,6 @@ function Navbox_Click(event)
 		input0.style.opacity="1";
 		bgbox.style.transform="";
 		bgbox.style.filter="";
-		//}
 		navbox.style.opacity="0";
 		setTimeout("navbox.style.display='none';",250);
 	}
